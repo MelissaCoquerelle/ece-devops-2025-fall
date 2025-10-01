@@ -36,13 +36,13 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: cd modules/04.continuous-test/lab && npm ci
+      run: cd modules/04.continuous-test/lab-corrections && npm ci
 
     - name: Build project
-      run: cd modules/04.continuous-test/lab && npm run build --if-present
+      run: cd modules/04.continuous-test/lab-corrections && npm run build --if-present
 
     - name: Run tests
       env:
         REDIS_HOST: localhost
         REDIS_PORT: 6379
-      run: cd modules/04.continuous-test/lab && npm test
+      run: cd modules/04.continuous-test/lab-corrections && npm test
