@@ -38,15 +38,15 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: cd modules/04.continuous-test/lab-corrections && npm ci
+        run: cd modules/04.continuous-testing/lab-corrections && npm ci
 
       # Build project (if applicable)
       - name: Build project
-        run: cd modules/04.continuous-test/lab-corrections && npm run build --if-present
+        run: cd modules/04.continuous-testing/lab-corrections && npm run build --if-present
 
       # Run tests
       - name: Run tests
         env:
           REDIS_HOST: localhost
           REDIS_PORT: 6379
-        run: cd modules/04.continuous-test/lab-corrections && npm test
+        run: cd modules/04.continuous-testing/lab-corrections && npm test
