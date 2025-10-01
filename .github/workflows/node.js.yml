@@ -30,13 +30,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Node.js and cache dependencies (lock file in lab folder)
+      # Setup Node.js (no caching to avoid warnings)
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: modules/04.continuous-test/lab-corrections/package-lock.json
 
       # Install dependencies
       - name: Install dependencies
