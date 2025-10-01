@@ -17,7 +17,16 @@ module.exports = {
       callback(null, res) // Return callback
     })
   },
-  // get: (username, callback) => {
+  get: (username, callback) => {
   //   // TODO create this method
-  // }
+    if (!username) return callback(new Error("You need an username"),null)
+    db.hgetall(username,(err,obj)=> {
+      if (err) return callback(err, null)
+      if (!obj) {
+        return callback(null, null)
+    }
+
+    callback(null, obj)
+    })
+  }
 }
